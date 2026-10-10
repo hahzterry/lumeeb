@@ -22,6 +22,7 @@ interface PortfolioItem {
   description: string;
   image: string;
   price?: number;
+  acquired?: boolean;
 }
 
 const timelineColors = [
@@ -163,12 +164,17 @@ const CommissionDetail = () => {
               </div>
             )}
           </div>
-          <div>
+          <div className="relative">
             <img
               src={portfolioItem.image}
               alt={portfolioItem.title}
               className="w-full h-auto object-cover rounded-lg shadow-lg"
             />
+            {portfolioItem.acquired && (
+              <span className="absolute top-4 left-4 z-10 bg-red-700 text-white text-xs font-medium uppercase tracking-extra px-3 py-1 rounded-sm shadow-md">
+                Acquired
+              </span>
+            )}
           </div>
         </div>
       </div>

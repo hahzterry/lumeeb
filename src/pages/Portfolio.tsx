@@ -19,6 +19,7 @@ interface PortfolioItem {
   image: string;
   price?: number;
   tags?: string[];
+  acquired?: boolean;
 }
 
 const Portfolio = () => {
@@ -213,6 +214,11 @@ const Portfolio = () => {
                   alt={work.title}
                   className="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
+                {work.acquired && (
+                  <span className="absolute top-4 left-4 z-10 bg-red-700 text-white text-xs font-medium uppercase tracking-extra px-3 py-1 rounded-sm shadow-md">
+                    Acquired
+                  </span>
+                )}
                 <div 
                   className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent opacity-0 group-hover:opacity-95 transition-all duration-300"
                   style={{

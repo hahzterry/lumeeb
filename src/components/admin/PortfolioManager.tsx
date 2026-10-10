@@ -22,6 +22,7 @@ interface PortfolioItem {
   image: string;
   price?: number;
   tags?: string[];
+  acquired?: boolean;
   timeline?: TimelineItem[];
 }
 
@@ -412,6 +413,16 @@ const PortfolioManager: React.FC<Props> = ({
                   className="w-full px-4 py-2 rounded-md border border-gray-300 focus:border-gold focus:ring-gold"
                   placeholder="Price"
                 />
+              </div>
+              <div className="flex items-center gap-2">
+                <input
+                  id="edit-acquired"
+                  type="checkbox"
+                  checked={!!editingPortfolio.acquired}
+                  onChange={e => setEditingPortfolio({ ...editingPortfolio, acquired: e.target.checked })}
+                  className="h-4 w-4 rounded border-gray-300 text-gold focus:ring-gold"
+                />
+                <label htmlFor="edit-acquired" className="text-sm font-medium text-charcoal">Acquired</label>
               </div>
               <div>
                 <label htmlFor="edit-tags" className="block text-sm font-medium text-charcoal mb-1">Tags</label>
